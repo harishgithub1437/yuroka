@@ -50,14 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // mobile nav toggle
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
+  const header = document.querySelector('.site-header');
+
+  const setHeaderHeightVar = () => {
+    if (header) document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  };
+  setHeaderHeightVar();
+  window.addEventListener('resize', setHeaderHeightVar);
+
+  const closeMenu = () => {
+    links.classList.remove('open');
+    toggle.classList.remove('active');
+    document.body.classList.remove('nav-open');
+  };
+
   if (toggle && links) {
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.classList.toggle('active');
+      setHeaderHeightVar();
+      const willOpen = !links.classList.contains('open');
+      links.classList.toggle('open', willOpen);
+      toggle.classList.toggle('active', willOpen);
+      document.body.classList.toggle('nav-open', willOpen);
     });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-    }));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   }
 
   // scroll reveal
