@@ -304,6 +304,16 @@ section{position:relative;}
     padding:64px 0 380px;
   }
 }
+@media (max-width:620px){
+  .hero-banner{
+    padding:40px 0 220px;
+    background-position:center 88%;
+  }
+  .hero-banner .stat-row{margin-top:22px !important;gap:28px;}
+  .hero-banner .hero-badges{margin-top:22px;}
+  .hero-banner .hero-sub{margin-top:14px;}
+  .hero-banner .hero-actions{margin-top:22px;}
+}
 .hero-bg-blob{
   position:absolute;
   border-radius:50%;
