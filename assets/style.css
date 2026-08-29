@@ -866,4 +866,23 @@ html{scrollbar-color:var(--magenta-500) var(--cream-50);}
   .form-row{grid-template-columns:1fr;}
   .cta-banner{padding:44px 24px;}
   .nav{padding:14px 20px;}
+
+  /* horizontal peek-a-next card slider */
+  .card-slider{
+    display:flex;
+    grid-template-columns:none;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:14px;
+    margin:0 -28px;
+    padding:4px 28px 18px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .card-slider::-webkit-scrollbar{display:none;}
+  .card-slider > *{
+    flex:0 0 80%;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
 }
