@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // header shadow on scroll
-  const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
       header.style.boxShadow = window.scrollY > 8 ? '0 8px 24px -18px rgba(90,30,63,0.35)' : 'none';
